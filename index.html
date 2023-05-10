@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic tac toe</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="center">
-    <h2>Tic tac toe game</h2>
-    <div class="game_board">
-      <div class="cell" data-id="0"></div>
-      <div class="cell" data-id="1"></div>
-      <div class="cell" data-id="2"></div>
-      <div class="cell" data-id="3"></div>
-      <div class="cell" data-id="4"></div>
-      <div class="cell" data-id="5"></div>
-      <div class="cell" data-id="6"></div>
-      <div class="cell" data-id="7"></div>
-      <div class="cell" data-id="8"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic tac toe</title>
+    <link rel="stylesheet" href="/part_2/tictactoe/style.css" />
+  </head>
+  <body>
+    <div class="center">
+      <h2>Tic tac toe game</h2>
+      <div class="game_board">
+        <div class="cell" data-id="0"></div>
+        <div class="cell" data-id="1"></div>
+        <div class="cell" data-id="2"></div>
+        <div class="cell" data-id="3"></div>
+        <div class="cell" data-id="4"></div>
+        <div class="cell" data-id="5"></div>
+        <div class="cell" data-id="6"></div>
+        <div class="cell" data-id="7"></div>
+        <div class="cell" data-id="8"></div>
+      </div>
+
+      <button class="reset">Reset</button>
     </div>
 
-    <button class="reset">Reset</button>
-  </div>
-
-  <div class="popup">
-    <div class="text_card">
-      <h3 class="message"></h3>
-      <button class="reset_game">Reset</button>
+    <div class="popup">
+      <div class="text_card">
+        <h3 class="message"></h3>
+        <button class="reset_game">Reset</button>
+      </div>
     </div>
-  </div>
-  <!-- 
+    <!-- 
     1. ✅ Ievietot "x" pie klikšķa uz šūnas
       A. ✅ Pirmajai šunai pārtver klikšķa notikumu.
       B. ✅ Pārtvert klikšķi -> pārbaudīt
@@ -52,9 +52,8 @@
     10. Pārlādējot lapu, ļaut turpināt spēli no tās pašas vietas
     (visi iepriekšējie gājieni ir vajadzīgajās šūnās)
    -->
-   <script src="Referee.js"></script>
-   <script src="Storage.js"></script>
-   <script src="script.js"></script>
-
-</body>
+    <script src="/part_2/tictactoe/Referee.js"></script>
+    <script src="/part_2/tictactoe/Storage.js"></script>
+    <script src="/part_2/tictactoe/script.js"></script>
+  </body>
 </html>
