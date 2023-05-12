@@ -61,8 +61,8 @@ function resetHandle() {
   symbol = "x";
   moves = {};
   hideMessage();
-  localStorage.clear();
-  // storage.clear();
+  // localStorage.clear();
+  storage.clearFunct();
 }
 
 function showMessage(message) {

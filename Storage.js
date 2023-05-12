@@ -53,13 +53,23 @@ class Storage {
     const json_data = JSON.stringify(this.data);
     localStorage.setItem(this.storage_name, json_data);
   }
-  // clear() {
-  //   localStorage.clear();
-  // or
-  // this.data.entries = {};
-  //   this.save();
-  // }
+  clearFunct() {
+    localStorage.clear();
+    // or
+    // this.data.entries = {};
+    // this.save();
+  }
 }
+
+// https://bezkomisijas.lv/api-storage/1afa146fca636c3026b1804c03cd7266/
+// {
+//   "status": true,
+//   "0": "https://bezkomisijas.lv/api-storage/1afa146fca636c3026b1804c03cd7266/{storage_name}/?action=create",
+//   "1": "https://bezkomisijas.lv/api-storage/1afa146fca636c3026b1804c03cd7266/{storage_name}/?action=get-all",
+//   "2": "https://bezkomisijas.lv/api-storage/1afa146fca636c3026b1804c03cd7266/{storage_name}/?action=update",
+//   "3": "https://bezkomisijas.lv/api-storage/1afa146fca636c3026b1804c03cd7266/{storage_name}/?action=delete",
+//   "4": "https://bezkomisijas.lv/api-storage/1afa146fca636c3026b1804c03cd7266/{storage_name}/?action=clear"
+// }
 
 // const json = `{
 //   "firstname": "Leo",
