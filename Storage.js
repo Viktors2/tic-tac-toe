@@ -54,10 +54,10 @@ class Storage {
     localStorage.setItem(this.storage_name, json_data);
   }
   clearFunct() {
-    localStorage.clear();
+    // localStorage.clear();
     // or
-    // this.data.entries = {};
-    // this.save();
+    this.data.entries = {};
+    this.save();
   }
 }
 
