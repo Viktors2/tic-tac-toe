@@ -58,18 +58,18 @@ function clickHandle() {
   storage.add(id, { symbol: symbol });
   if (referee.checkWinner(moves, symbol)) {
     showMessage("Player " + symbol + " has won the game!");
-    const form_data = new FormData();
+    let form_data = new FormData();
     form_data.append("winner", symbol);
     api.create(form_data, () => {
-      console.log("API create request Draw!");
+      console.log("API create request successful!");
       showWinners();
     });
   } else if (referee.checkDraw(cells) === true) {
     showMessage("Draw!");
-    const form_data = new FormData();
+    let form_data = new FormData();
     form_data.append("result", "Draw");
     api.create(form_data, () => {
-      console.log("API create request successful");
+      console.log("API create request Draw!");
       showWinners();
     });
   }
