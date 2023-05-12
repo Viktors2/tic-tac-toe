@@ -55,6 +55,8 @@ class Storage {
   }
   // clear() {
   //   localStorage.clear();
+  // or
+  // this.data.entries = {};
   //   this.save();
   // }
 }
