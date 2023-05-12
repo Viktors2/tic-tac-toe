@@ -33,12 +33,12 @@ for (const id in entries) {
 addEventListener("load", showWinners);
 const winners = document.querySelector(".winner_list");
 function showWinners() {
-  api.getRequest((entries) => {
+  api.getRequest(function (entries) {
     winners.innerHTML = "";
     for (const id in entries) {
       const entry = entries[id];
       const li = document.createElement("li");
-      if (entry.winner === undefined || entry.result === "Draw") {
+      if (entry.winner === undefined) {
         li.innerHTML = "<strong>Draw</strong>";
       } else {
         li.innerHTML = "<strong>" + entry.winner + "</strong> won the game!";
