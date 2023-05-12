@@ -53,10 +53,10 @@ class Storage {
     const json_data = JSON.stringify(this.data);
     localStorage.setItem(this.storage_name, json_data);
   }
-  clear() {
-    localStorage.clear();
-    this.save();
-  }
+  // clear() {
+  //   localStorage.clear();
+  //   this.save();
+  // }
 }
 
 // const json = `{

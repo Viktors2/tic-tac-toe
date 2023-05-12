@@ -55,13 +55,14 @@ popup.addEventListener("click", function (event) {
 });
 
 function resetHandle() {
-  localStorage.clear();
   for (const cell of cells) {
     cell.textContent = "";
   }
   symbol = "x";
   moves = {};
   hideMessage();
+  localStorage.clear();
+  // storage.clear();
 }
 
 function showMessage(message) {
