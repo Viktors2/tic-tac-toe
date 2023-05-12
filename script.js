@@ -55,6 +55,7 @@ popup.addEventListener("click", function (event) {
 });
 
 function resetHandle() {
+  localStorage.clear();
   for (const cell of cells) {
     cell.textContent = "";
   }
