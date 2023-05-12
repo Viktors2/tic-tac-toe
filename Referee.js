@@ -28,7 +28,7 @@ class Referee {
 
   checkDraw(cells) {
     for (const cell of cells) {
-      if (this.checkWinner === true && cell.textContent === "") {
+      if (cell.textContent === "") {
         return false;
       }
     }
