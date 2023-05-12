@@ -1,5 +1,4 @@
-class Referee
-{
+class Referee {
   win_combinations = [
     [0, 1, 2],
     [3, 4, 5],
@@ -10,7 +9,7 @@ class Referee
     [2, 5, 8],
 
     [0, 4, 8],
-    [2, 4, 6]
+    [2, 4, 6],
   ];
 
   checkWinner(moves, s) {
@@ -19,15 +18,20 @@ class Referee
       let coord2 = combination[1];
       let coord3 = combination[2];
 
-      if (
-        moves[coord1] == s &&
-        moves[coord2] == s &&
-        moves[coord3] == s
-      ) {
+      if (moves[coord1] == s && moves[coord2] == s && moves[coord3] == s) {
         return true;
       }
     }
-  
+
     return false;
+  }
+
+  checkDraw(cells) {
+    for (const cell of cells) {
+      if (cell.textContent === "") {
+        return false;
+      }
+    }
+    return true;
   }
 }

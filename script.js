@@ -17,7 +17,9 @@ function boardClickHandle(event) {
   clickHandle.bind(event.target)();
 }
 
-let symbol = "x";
+let symbol = localStorage.getItem("last_symbol") || "x"; // to get last symbol from localStorage or X
+const api = new ApiManager("tic-tac-toe");
+
 let referee = new Referee();
 let storage = new Storage("tictactoe");
 let entries = storage.getEntries();
@@ -26,6 +28,24 @@ for (const id in entries) {
   const entry = entries[id];
   cells[id].textContent = entry.symbol;
   moves[id] = entry.symbol;
+}
+
+addEventListener("load", showWinners);
+const winners = document.querySelector(".winner_list");
+function showWinners() {
+  api.getRequest((entries) => {
+    winners.innerHTML = "";
+    for (const id in entries) {
+      const entry = entries[id];
+      const li = document.createElement("li");
+      if (entry.winner === undefined || entry.result === "Draw") {
+        li.innerHTML = "<strong>Draw</strong>";
+      } else {
+        li.innerHTML = "<strong>" + entry.winner + "</strong> won the game!";
+      }
+      winners.prepend(li);
+    }
+  });
 }
 
 function clickHandle() {
@@ -38,10 +58,24 @@ function clickHandle() {
   storage.add(id, { symbol: symbol });
   if (referee.checkWinner(moves, symbol)) {
     showMessage("Player " + symbol + " has won the game!");
+    const form_data = new FormData();
+    form_data.append("winner", symbol);
+    api.create(form_data, () => {
+      console.log("API create request Draw!");
+      showWinners();
+    });
+  } else if (referee.checkDraw(cells) === true) {
+    showMessage("Draw!");
+    const form_data = new FormData();
+    form_data.append("result", "Draw");
+    api.create(form_data, () => {
+      console.log("API create request successful");
+      showWinners();
+    });
   }
 
   symbol = symbol === "x" ? "o" : "x";
-
+  localStorage.setItem("last_symbol", symbol); // will save last symbol in localStorage
   // console.log(moves);
 }
 
@@ -61,6 +95,7 @@ function resetHandle() {
   symbol = "x";
   moves = {};
   hideMessage();
+  localStorage.removeItem("last_symbol");
   // localStorage.clear();
   storage.clearFunct();
 }
